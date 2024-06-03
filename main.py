@@ -1,0 +1,14 @@
+from text_summariser.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
+from text_summariser.logging import logger
+
+
+STAGE_NAME = "STAGE 01: DATA INGESTION"
+try:
+    logger.info(f"{STAGE_NAME} started")
+    data_ingestion = DataIngestionTrainingPipeline()
+    data_ingestion.main()
+    logger.info(f"{STAGE_NAME} completed")
+
+except Exception as e:
+    logger.error(f"{STAGE_NAME} failed with error: {str(e)}")
+    raise e
